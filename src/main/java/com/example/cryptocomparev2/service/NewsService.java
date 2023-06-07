@@ -24,10 +24,6 @@ import jakarta.json.JsonReader;
 @Service
 public class NewsService {
 
-    @Value("${cryto.compare.url}")
-    private String cryptoCompareUrl;
-    @Value("${crypto.compare.key}")
-    private String cryptoCompareKey;
 
     @Autowired
     private NewsRepository repo;
