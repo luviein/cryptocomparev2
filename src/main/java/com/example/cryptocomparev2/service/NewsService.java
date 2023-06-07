@@ -68,4 +68,8 @@ public class NewsService {
         }
     }
 
+    public NewsInfo getArticlesById(String newsId) throws IOException {
+       return this.repo.get(newsId);
+    }
+
 }

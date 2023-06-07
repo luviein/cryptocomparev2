@@ -50,6 +50,19 @@
 
 
 
+# TASK FOUR
+
+## REST CONTROLLER CLASS
+1. Set up GetMapping to output Json format of saved articles
+2. If there is error = Http Status 404
+
+
+## REPOSITORY CLASS
+1. Get article by the ID key
+
+## SERVICE CLASS
+1. Get article by ID based on method in repo
+
 
 
 
