@@ -11,6 +11,8 @@ ARG REDISHOST
 ARG REDISPORT
 ARG REDISUSER
 ARG REDISPASSWORD
+ARG CRYPTOURL
+ARG CRYPTOKEY
 
 RUN mvn -f /home/app/pom.xml clean package
 
@@ -24,6 +26,8 @@ ARG REDISHOST
 ARG REDISPORT
 ARG REDISUSER
 ARG REDISPASSWORD
+ARG CRYPTOURL
+ARG CRYPTOKEY
 
 COPY --from=build /home/app/target/cryptocomparev2-0.0.1-SNAPSHOT.jar /usr/local/lib/cryptocomparev2-0.0.1-SNAPSHOT.jar
 
