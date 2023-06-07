@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Crypto News</title>
+    <style>
+        h1{
+            text-align: center;
+
+        }
+        button{
+            top: 15%;
+            float: right;
+        }
+
+        tr, td{
+            border: 1px solid black;
+            padding: 5px;
+            
+        }
+
+        img{
+            float:left;
+            margin-right: 15px;
+            height: 100px;
+            width: auto;
+        }
+        
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Latest Crypto News</h1>
+    <div class="container">
+        <form action="/articles" method="post">
+            <button type="submit">Save</button>
+    
+            <table>
+                <tr th:each="news : ${latestNews}">
+                    <td>
+                        <div class="image">
+                            <img data-th-src="${news.imageURL}"/>
+                        </div>
+    
+                        <div class="text"> 
+                           Id: <span th:text="${news.id}"></span><br>
+                           <strong><span th:text="${news.title}"></span></strong><br>
+                           <span th:text="${news.body}"></span><br>
+                           Categories <span th:text="${news.categories}"></span><br>
+                           Tags: <span th:text="${news.tags}"></span> <br>
+                           Published: <span th:text="${news.published_on}"></span>
+                           <a data-th-href="${news.url}">Link</a>
+                           <!-- name binds to request param, binds id value to checkbox -->
+                            <input type="checkbox" name="selectedArticles" th:value="${news.id}">
+                        
+    
+                        </div>
+    
+                        
+                    </td>
+                </tr>
+            </table>
+            
+    
+        </form>
+
+    </div>
+    
+
+</body>
+</html>

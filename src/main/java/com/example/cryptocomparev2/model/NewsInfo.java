@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.io.Serializable;
 
 import jakarta.json.Json;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonNumber;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 
@@ -53,13 +55,14 @@ public class NewsInfo implements Serializable {
             JsonReader r = Json.createReader(is);
             JsonObject o = r.readObject();
             n.setId(o.getString("id"));
-            n.setPublished_on(o.getJsonNumber("published_on").longValue());
+            JsonNumber publishedObj = o.getJsonNumber("published_on");
+            n.setPublished_on(publishedObj.longValue());
             n.setTitle(o.getString("title"));
             n.setUrl(o.getString("url"));
-            n.setImageURL((o.getString("imageurl")));
+            n.setImageURL(o.getString("imageurl"));
             n.setBody(o.getString("body"));
             n.setTags(o.getString("tags"));
-            n.setCategories(o.getString("categories)"));
+            n.setCategories(o.getString("categories"));
 
         }
 
