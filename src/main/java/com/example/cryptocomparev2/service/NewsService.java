@@ -35,9 +35,8 @@ public class NewsService {
     public List<NewsInfo> getArticles() throws IOException {
 
         // building the URI
-        String newsUrl = UriComponentsBuilder.fromUriString(cryptoCompareUrl)
-                .queryParam("appId", cryptoCompareKey)
-                .toUriString();
+        String newsUrl = "https://min-api.cryptocompare.com/data/v2/news/?lang=EN";
+                
 
         System.out.println("NewsURL: " + newsUrl);
 
