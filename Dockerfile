@@ -29,7 +29,7 @@ ARG REDISPASSWORD
 ARG CRYPTOURL
 ARG CRYPTOKEY
 
-COPY --from=build /home/app/target/cryptocomparev2-0.0.1-SNAPSHOT.jar /usr/local/lib/cryptocomparev2-0.0.1-SNAPSHOT.jar
+COPY --from=build /home/app/target/cryptocomparev2-0.0.1-SNAPSHOT.jar /usr/local/lib/cryptocomparev2.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/usr/local/lib/cryptocomparev2-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/usr/local/lib/cryptocomparev2.jar"]
