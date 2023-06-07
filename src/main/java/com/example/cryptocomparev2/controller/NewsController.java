@@ -21,6 +21,8 @@ public class NewsController {
     @Autowired
     private NewsService newsSvc;
 
+    private List<NewsInfo> allArticlesToCompare;
+
 
     @GetMapping(path="/")
     public String getLandingPage(Model m) throws IOException{
@@ -38,7 +40,7 @@ public class NewsController {
         //converts selected IDs from array to list of string
         List<String> selectedIds = Arrays.asList(articleIds);
         //retrieve all articles to compare with selected IDs
-        List<NewsInfo> allArticlesToCompare = newsSvc.getArticles();
+        allArticlesToCompare = newsSvc.getArticles();
         Iterator<NewsInfo> iterator = allArticlesToCompare.iterator();
 
         // remove IDs that are not saved
@@ -56,6 +58,13 @@ public class NewsController {
         m.addAttribute("latestNews", articlesAfterSaving);
 
         return "landingpage";
+    }
+
+    @GetMapping(path="/saved")
+    public String seeSaved(Model m){
+        m.addAttribute("see", allArticlesToCompare);
+        System.out.println("------------->" + allArticlesToCompare);
+        return "saved";
     }
 
 }
