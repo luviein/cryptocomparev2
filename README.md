@@ -32,3 +32,26 @@
 ## HTML
 1. Display all properties found in Model
 2. Add a checkbox to save articles
+
+
+
+
+# TASK THREE
+
+## REPOSITORY CLASS
+1. Add method to save list of selected articles by using opsForValue().set()
+
+## SERVICE CLASS
+1. Call save method from repository in service class
+2. Add the method to controller
+
+## CONFIG CLASS
+1. Set up Redis Config & set up relevant application properties
+
+
+
+
+
+
+# MISTAKES MADE
+1. Did not add toString in save method for repo which resulted in class cast exception

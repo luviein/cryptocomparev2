@@ -49,7 +49,13 @@ public class NewsController {
             }
         }
 
+        //saves filtered articles to redis
+        newsSvc.saveArticles(allArticlesToCompare);
+        //generates latest articles again after saving
+        List<NewsInfo> articlesAfterSaving = newsSvc.getArticles();
+        m.addAttribute("latestNews", articlesAfterSaving);
 
+        return "landingpage";
     }
 
 }
